@@ -18,7 +18,7 @@ public class MecanumDrivebase {
     static double backLeftPower;
     static double frontRightPower;
     static double backRightPower;
-    public static void MecanumInit(DcMotor fl, DcMotor bl, DcMotor fr, DcMotor br){
+    public static void mecanumInit(DcMotor fl, DcMotor bl, DcMotor fr, DcMotor br){
         frontLeftMotor = fl;
         backLeftMotor = bl;
         frontRightMotor = fr;
@@ -27,12 +27,11 @@ public class MecanumDrivebase {
         // Reverse the right side motors. This may be wrong for your setup.
         // If your robot moves backwards when commanded to go forwards,
         // reverse the left side instead.
-        // See the note about this earlier on this page.
-        frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
-    public static void MecanumTeleOp(Gamepad gamepad){
+    public static void mecanumTeleOp(Gamepad gamepad){
         y = -gamepad.left_stick_y; // Remember, Y stick value is reversed
         x = gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
         rx = gamepad.right_stick_x;
